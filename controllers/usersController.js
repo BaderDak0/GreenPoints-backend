@@ -3,17 +3,34 @@ const { infologger, errorlogger } = require("../logs/logs");
 exports.UsersController = {
     getUsers(req, res) {
         infologger.info("Get all Users");
-        User.find({})
-            .then(user => {
-                infologger.info("Success to Get all users");
-                res.json(user)
-            })
-            .catch(err => {
+        if (req.query.sort == "score") {
+            infologger.info("Success to Get all sort users");
+            User.find({}).sort({ score: -1 })
+                .then(user => {
 
-                errorlogger.error(`Error getting the data from db:${err}`)
-                res.json({ "message": `Error Gets users ` });
+                    infologger.info("Success to Get all sorted users");
+                    res.json(user)
+                })
+                .catch(err => {
 
-            });
+                    errorlogger.error(`Error getting the data from db:${err}`)
+                    res.json({ "message": `Error Gets sorted users  ` });
+
+                });
+        } else {
+            User.find({})
+                .then(user => {
+
+                    infologger.info("Success to Get all users");
+                    res.json(user)
+                })
+                .catch(err => {
+
+                    errorlogger.error(`Error getting the data from db:${err}`)
+                    res.json({ "message": `Error Gets users ` });
+
+                });
+        }
     },
     getUserDetails(req, res) {
         infologger.info(`Get User id:${req.params.id}`);
@@ -36,23 +53,23 @@ exports.UsersController = {
     },
     editUserDetails(req, res) {
         infologger.info("Updating a user");
-        User.updateOne( { _id: req.params.id }, req.body )
-                .then((result) => {
+        User.updateOne({ _id: req.params.id }, req.body)
+            .then((result) => {
 
-                    if (result.matchedCount > 0) {
-                        infologger.info(`Updating user no:${req.params.id} is successfully`);
-                        res.json({ "message": `Updating user no:${req.params.id} is successfully` });
-                    }
-                    else {
-                        errorlogger.error("Wrong user id please enter correct id");
-                        res.status(400).json({ "message": "Wrong user id please enter correct id" });
-                    }
-                })
-                .catch((err) => res.status(400).json(err));
+                if (result.matchedCount > 0) {
+                    infologger.info(`Updating user no:${req.params.id} is successfully`);
+                    res.json({ "message": `Updating user no:${req.params.id} is successfully` });
+                }
+                else {
+                    errorlogger.error("Wrong user id please enter correct id");
+                    res.status(400).json({ "message": "Wrong user id please enter correct id" });
+                }
+            })
+            .catch((err) => res.status(400).json(err));
     },
     addUser(req, res) {
         infologger.info("Add a user");
-        if (req.body.name && req.body.email && req.body.password && req.body.registerDate && req.body.score,req.body.moderator) {
+        if (req.body.name && req.body.email && req.body.password && req.body.registerDate && req.body.score, req.body.moderator) {
             const newUser = new User(req.body);
             const result = newUser.save()
             if (result) {
