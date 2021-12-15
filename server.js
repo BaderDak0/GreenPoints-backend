@@ -8,6 +8,9 @@ const { infologger, errorlogger } = require("./logs/logs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api/users', UsersRouter);
+app.use('/api/RecycleBins', RecycleBinsRouter);
+app.use('/api/Items', ItemsRouter);
 
 app.use((req, res) => {
     errorlogger.error(`Bad Methode Request!:${req.method} ${req.url}`);
