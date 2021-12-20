@@ -52,17 +52,17 @@ exports.RecycleBinsController = {
     },
     addRecycleBin(req, res) {
         infologger.info("Add a recycleBin");
-        if (req.body.type && req.body.size  && req.body.maxCapacity && req.body.currentCapacity) {
+        if (req.body.type && req.body.size && req.body.maxCapacity && req.body.currentCapacity) {
             const newRecycleBin = new RecycleBin(req.body);
-            const result = newRecycleBin.save()
-            if (result) {
-                infologger.info(`Adding RecycleBin in   :${req.body.location} is successfully`);
-                res.json({ "message": `Adding RecycleBin in   :${req.body.location} is successfully` });
-            }
-            else {
-                errorlogger.error(`Error Adding RecycleBin `);
-                res.json({ "message": `Error Adding RecycleBin ` });
-            }
+            newRecycleBin.save()
+                .then(result => {
+                    infologger.info(`Adding RecycleBin in   :${req.body.location} is successfully`);
+                    res.json({ "message": `Adding RecycleBin in   :${req.body.location} is successfully` });
+                })
+                .catch(err => {
+                    errorlogger.error(`Error Adding RecycleBin `);
+                    res.status(400).json({ "message": `Error Adding RecycleBin ` });
+                });
         }
         else {
             errorlogger.error("Missing Parameters Please send all Parameters ");
