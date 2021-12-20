@@ -52,7 +52,7 @@ exports.RecycleBinsController = {
     },
     addRecycleBin(req, res) {
         infologger.info("Add a recycleBin");
-        if (req.body.type && req.body.size && req.body.QRCode && req.body.MaxCapacity && req.body.currentCapacity) {
+        if (req.body.type && req.body.size  && req.body.maxCapacity && req.body.currentCapacity) {
             const newRecycleBin = new RecycleBin(req.body);
             const result = newRecycleBin.save()
             if (result) {
