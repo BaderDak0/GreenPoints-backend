@@ -57,7 +57,7 @@ exports.RecycleBinsController = {
             newRecycleBin.save()
                 .then(result => {
                     infologger.info(`Adding RecycleBin in   :${req.body.location} is successfully`);
-                    res.json({ "message": `Adding RecycleBin in   :${req.body.location} is successfully` });
+                    res.json(result);
                 })
                 .catch(err => {
                     errorlogger.error(`Error Adding RecycleBin `);
