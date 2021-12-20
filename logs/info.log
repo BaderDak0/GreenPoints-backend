@@ -1,0 +1,12 @@
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-03 07:16:49 PM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2021-12-03 07:16:50 PM +0200"}
+{"level":"info","message":"Sucsess Geting AUTHKEY Methode Request!:POST /","timestamp":"2021-12-03 07:16:51 PM +0200"}
+{"level":"info","message":"authentication success","timestamp":"2021-12-03 07:16:59 PM +0200"}
+{"level":"info","message":"Get all flights","timestamp":"2021-12-03 07:16:59 PM +0200"}
+{"level":"info","message":"Success to Get all flights","timestamp":"2021-12-03 07:16:59 PM +0200"}
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-15 05:28:57 PM +0200"}
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-15 05:30:03 PM +0200"}
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-15 05:31:28 PM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2021-12-15 05:31:29 PM +0200"}
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-20 07:35:26 PM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2021-12-20 07:35:27 PM +0200"}
