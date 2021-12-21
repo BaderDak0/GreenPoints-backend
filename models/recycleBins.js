@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 const addressSchema = new Schema({
-   lng : {type:Number},
-   lat : {type:Number}
+   lat : {type:Number},
+   lng : {type:Number}
 });
 
 const recycleBinsSchema = new Schema({
