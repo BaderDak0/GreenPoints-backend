@@ -2,44 +2,38 @@ const Item = require('../models/items');
 const { infologger, errorlogger } = require("../logs/logs");
 exports.ItemsController = {
     getItems(req, res) {
-        infologger.info("Get all Items ");
+        infologger.info("Get all Items");
         Item.find({})
             .then(item => {
                 infologger.info("Success to Get all Items");
                 res.json(item)
             })
             .catch(err => {
-
                 errorlogger.error(`Error getting the data from db:${err}`)
-                res.json({ "message": `Error Gets item ` });
-
+                res.status(500).json({ "message": `Error Gets item` });
             });
-
     },
     getItemDetails(req, res) {
         infologger.info(`Get item id:${req.params.id}`);
         Item.findOne({ _id: req.params.id })
             .then((item) => {
-
                 if (item) {
                     res.json(item)
-
                 }
                 else {
                     errorlogger.error("Wrong item id please enter correct id");
                     res.status(400).json({ "message": "Wrong item id please enter correct id" });
                 }
-
             })
             .catch(err => {
                 errorlogger.error(`Error Getting item from db:${err}`);
+                res.status(500).json({ "message": `Error getting item` });
             });
     },
     editItemDetails(req, res) {
         infologger.info("Updating a item");
         Item.updateOne({ _id: req.params.id }, req.body)
             .then((result) => {
-                
                 if (result.matchedCount > 0) {
                     infologger.info(`Updating item no:${req.params.id} is successfully`);
                     res.json({ "message": `Updating item no:${req.params.id} is successfully` });
@@ -57,19 +51,13 @@ exports.ItemsController = {
             const newItem = new Item(req.body);
             newItem.save()
                 .then(result => {
-
                     infologger.info(`Adding newItem type   :${req.body.newItem} is successfully`);
                     res.json(result);
-
-
                 })
                 .catch(err => {
                     errorlogger.error(`Error Adding newItem `);
                     res.status(400).json({ "message": `Error Adding newItem ` });
                 });
-
-
-
         }
         else {
             errorlogger.error("Missing Parameters Please send all Parameters ");

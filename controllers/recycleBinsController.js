@@ -9,36 +9,31 @@ exports.RecycleBinsController = {
                 res.json(recycleBin)
             })
             .catch(err => {
-
                 errorlogger.error(`Error getting the data from db:${err}`)
-                res.json({ "message": `Error Gets recycleBins ` });
-
+                res.status(500).json({ "message": `Error Gets recycleBins ` });
             });
     },
     getRecycleBinDetails(req, res) {
         infologger.info(`Get recycleBin id:${req.params.id}`);
         RecycleBin.findOne({ _id: req.params.id })
             .then((recycleBin) => {
-
                 if (recycleBin) {
                     res.json(recycleBin)
-
                 }
                 else {
                     errorlogger.error("Wrong recycleBin id please enter correct id");
                     res.status(400).json({ "message": "Wrong recycleBin id please enter correct id" });
                 }
-
             })
             .catch(err => {
                 errorlogger.error(`Error Getting recycleBin from db:${err}`);
+                res.status(500).json({ "message": `Error getting recycle bin` });
             });
     },
     editRecycleBinDetails(req, res) {
         infologger.info("Updating a recycleBin");
         RecycleBin.updateOne({ _id: req.params.id }, req.body)
             .then((result) => {
-
                 if (result.matchedCount > 0) {
                     infologger.info(`Updating RecycleBin no:${req.params.id} is successfully`);
                     res.json({ "message": `Updating RecycleBin no:${req.params.id} is successfully` });
@@ -52,19 +47,16 @@ exports.RecycleBinsController = {
     },
     addRecycleBin(req, res) {
         infologger.info("Add a recycleBin");
-    
-            const newRecycleBin = new RecycleBin(req.body);
-            newRecycleBin.save()
-                .then(result => {
-                    infologger.info(`Adding RecycleBin in   :${req.body.location} is successfully`);
-                    res.json(result);
-                })
-                .catch(err => {
-                    errorlogger.error(`Error Adding RecycleBin `);
-                    res.status(400).json({ "message": `Error Adding RecycleBin ` });
-                });
-    
-
+        const newRecycleBin = new RecycleBin(req.body);
+        newRecycleBin.save()
+            .then(result => {
+                infologger.info(`Adding RecycleBin in   :${req.body.location} is successfully`);
+                res.json(result);
+            })
+            .catch(err => {
+                errorlogger.error(`Error Adding RecycleBin `);
+                res.status(400).json({ "message": `Error Adding RecycleBin ` });
+            });
     },
     deleteRecycleBin(req, res) {
         infologger.info("Delete a RecycleBin");
@@ -78,7 +70,6 @@ exports.RecycleBinsController = {
                     errorlogger.error(`RecycleBin no:${req.params.id} does not exists`);
                     res.status(400).json({ "message": `RecycleBin no:${req.params.id} does not exists` });
                 }
-
             })
             .catch(() => {
                 errorlogger.error(`Error Deleting RecycleBin no:${req.params.id} `);
