@@ -13,9 +13,9 @@ const corsConfig = function (req, res, next) {
     next()
 }
 app.use(corsConfig);
-app.use(bodyParser({limit: '50mb'}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser({limit: '50mb'}))
 app.use('/api/users', UsersRouter);
 app.use('/api/recycleBins', RecycleBinsRouter);
 app.use('/api/items', ItemsRouter);
