@@ -39,7 +39,7 @@ exports.ItemsController = {
         infologger.info("Updating a item");
         Item.updateOne({ _id: req.params.id }, req.body)
             .then((result) => {
-
+                
                 if (result.matchedCount > 0) {
                     infologger.info(`Updating item no:${req.params.id} is successfully`);
                     res.json({ "message": `Updating item no:${req.params.id} is successfully` });

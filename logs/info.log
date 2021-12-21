@@ -10,3 +10,23 @@
 {"level":"info","message":"DB connected","timestamp":"2021-12-15 05:31:29 PM +0200"}
 {"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-20 07:35:26 PM +0200"}
 {"level":"info","message":"DB connected","timestamp":"2021-12-20 07:35:27 PM +0200"}
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-21 10:52:47 AM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2021-12-21 10:52:48 AM +0200"}
+{"level":"info","message":"Get item id:61c1952948d869e223c541b9\n","timestamp":"2021-12-21 10:53:54 AM +0200"}
+{"level":"info","message":"Get item id:61c1952948d869e223c541b9\n","timestamp":"2021-12-21 10:54:34 AM +0200"}
+{"level":"info","message":"Get item id:\n","timestamp":"2021-12-21 10:55:24 AM +0200"}
+{"level":"info","message":"Get item id:\n","timestamp":"2021-12-21 10:56:34 AM +0200"}
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-21 10:57:26 AM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2021-12-21 10:57:27 AM +0200"}
+{"level":"info","message":"Get item id:\n","timestamp":"2021-12-21 10:57:43 AM +0200"}
+{"level":"info","message":"Get all Items ","timestamp":"2021-12-21 10:58:46 AM +0200"}
+{"level":"info","message":"Success to Get all Items","timestamp":"2021-12-21 10:58:46 AM +0200"}
+{"level":"info","message":"Get item id:61c1952948d869e223c541b9","timestamp":"2021-12-21 10:58:57 AM +0200"}
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-21 11:00:01 AM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2021-12-21 11:00:02 AM +0200"}
+{"level":"info","message":"Updating a item","timestamp":"2021-12-21 11:00:06 AM +0200"}
+{"level":"info","message":"Updating item no:61c1952948d869e223c541b9 is successfully","timestamp":"2021-12-21 11:00:06 AM +0200"}
+{"level":"info","message":"Express server is running on port 3000","timestamp":"2021-12-21 11:00:24 AM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2021-12-21 11:00:25 AM +0200"}
+{"level":"info","message":"Get all Items ","timestamp":"2021-12-21 11:00:33 AM +0200"}
+{"level":"info","message":"Success to Get all Items","timestamp":"2021-12-21 11:00:33 AM +0200"}
