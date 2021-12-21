@@ -48,7 +48,7 @@ exports.RecycleBinsController = {
                     res.status(400).json({ "message": "Wrong RecycleBin id please enter correct id" });
                 }
             })
-            .catch((err) => res.status(400).json(err));
+            .catch((err) => res.status(400).json({ "message": "Wrong RecycleBin id please enter correct id" }));
     },
     addRecycleBin(req, res) {
         infologger.info("Add a recycleBin");
