@@ -70,18 +70,36 @@ exports.UsersController = {
     addUser(req, res) {
         infologger.info("Add a user");
         if (req.body.name && req.body.email && req.body.password && req.body.registerDate && req.body.score, req.body.moderator) {
-            const newUser = new User(req.body);
-            newUser.save()
-                .then(result => {
 
-                    infologger.info(`Adding user  :${req.body.name} is successfully`);
-                    res.json(result);
+            User.findOne({ email: req.body.email })
+                .then((user) => {
+
+                    if (user) {
+                        errorlogger.error("this email is already exists");
+                        res.status(400).json({ "message": "this email is already exists" });
+
+                    }
+                    else {
+                        const newUser = new User(req.body);
+                        newUser.save()
+                            .then(result => {
+
+                                infologger.info(`Adding user  :${req.body.name} is successfully`);
+                                res.json(result);
+
+                            })
+                            .catch(err => {
+                                errorlogger.error(`Error Adding user `);
+                                res.status(400).json({ "message": `Error Adding user ` });
+                            });
+
+                    }
 
                 })
                 .catch(err => {
-                    errorlogger.error(`Error Adding user `);
-                    res.status(400).json({ "message": `Error Adding user ` });
+                    errorlogger.error(`Error Getting user from db:${err}`);
                 });
+
         }
         else {
             errorlogger.error("Missing Parameters Please send all Parameters ");
