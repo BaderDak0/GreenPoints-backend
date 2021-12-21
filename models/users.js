@@ -14,7 +14,7 @@ const userSchema = new Schema({
     registerDate: { type: String, required: true },
     score: { type: Number, required: true },
     moderator: { type: Boolean, required: true },
-    activites:[activitesSchema]
+    activities:[activitesSchema]
 }, { collection: 'users' });
 const User = model('User', userSchema);
 module.exports = User;
