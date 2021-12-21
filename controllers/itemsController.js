@@ -55,15 +55,21 @@ exports.ItemsController = {
         infologger.info("Add a item");
         if (req.body.type && req.body.size) {
             const newItem = new Item(req.body);
-            const result = newItem.save()
-            if (result) {
-                infologger.info(`Adding newItem type   :${req.body.newItem} is successfully`);
-                res.json({ "message": `Adding newItem type   :${req.body.newItem} is successfully` });
-            }
-            else {
-                errorlogger.error(`Error Adding newItem `);
-                res.json({ "message": `Error Adding newItem ` });
-            }
+            newItem.save()
+                .then(result => {
+
+                    infologger.info(`Adding newItem type   :${req.body.newItem} is successfully`);
+                    res.json(result);
+
+
+                })
+                .catch(err => {
+                    errorlogger.error(`Error Adding newItem `);
+                    res.status(400).json({ "message": `Error Adding newItem ` });
+                });
+
+
+
         }
         else {
             errorlogger.error("Missing Parameters Please send all Parameters ");
