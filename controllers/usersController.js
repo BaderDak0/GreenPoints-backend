@@ -109,7 +109,7 @@ exports.usersController = {
                             newActivity.points = 50;
                         }
                         activites.push(newActivity);
-                        User.updateOne({ _id: req.params.id }, { activites })
+                        User.updateOne({ _id: req.params.id }, { points: user.points + newActivity.points, activites })
                             .then((result) => {
                                 if (result.matchedCount > 0) {
                                     infoLogger.info(`Updating user's activities no:${req.params.id} is successfully`);
