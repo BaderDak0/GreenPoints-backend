@@ -1,18 +1,19 @@
 const { Schema, model } = require('mongoose');
 
 const activitesSchema = new Schema({
-    imgUrl: { type: String, required: true },
     dateTime: { type: String, required: true },
     recycleBinID: { type: String, required: true },
-    items:[ { itemId: String, quantity: Number } ]
+    type: { type: String, required: true },
 });
 
 const userSchema = new Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
+    age: { type: Number, required: true },
+    gender: { type: String, required: true },
     password: { type: String, required: true },
     registerDate: { type: String, required: true },
-    score: { type: Number, required: true },
+    points: { type: Number, required: true },
     moderator: { type: Boolean, required: true },
     activities:[activitesSchema]
 }, { collection: 'users' });

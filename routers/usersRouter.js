@@ -1,12 +1,11 @@
 const { Router } = require('express');
-const { UsersController } = require('../controllers/usersController');
-const UsersRouter = new Router();
-//*******************VIEW**************************\\
-UsersRouter.get('/', UsersController.getUsers); 
-UsersRouter.get('/:id', UsersController.getUserDetails);  
-//*******************ADD&EDIT**************************\\
-UsersRouter.patch('/:id', UsersController.editUserDetails); 
-UsersRouter.post('/', UsersController.addUser); 
-UsersRouter.delete('/:id', UsersController.deleteUser); 
-module.exports = { UsersRouter };
+const { usersController } = require('../controllers/usersController');
+const usersRouter = new Router();
+
+usersRouter.get('/', usersController.getUsers); 
+usersRouter.get('/:id', usersController.getUserDetails);  
+usersRouter.patch('/:id', usersController.editUserDetails); 
+usersRouter.post('/', usersController.addUser); 
+usersRouter.delete('/:id', usersController.deleteUser); 
+module.exports = { usersRouter };
 
