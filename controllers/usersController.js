@@ -81,8 +81,8 @@ exports.usersController = {
     },
     addActivity(req, res) {
         infoLogger.info(`Add Activity to user ${req.params.id}`);
-        const { dateTime, recycleBinID, type } = req.body;
-        if (dateTime && recycleBinID && type) {
+        const { dateTime, recycleBinID, type, address } = req.body;
+        if (dateTime && recycleBinID && type && address) {
             User.findOne({ _id: req.body.id })
                 .then((user) => {
                     if (!user) {
@@ -94,7 +94,8 @@ exports.usersController = {
                         const newActivity = {
                             dateTime,
                             recycleBinID,
-                            type
+                            type,
+                            address
                         };
                         if (type === 'plastic') {
                             newActivity.points = 100;

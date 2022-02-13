@@ -5,6 +5,7 @@ const activitesSchema = new Schema({
     recycleBinID: { type: String, required: true },
     type: { type: String, required: true },
     points: { type: Number, required: true },
+    address: { type: String, required: true }, 
 });
 
 const userSchema = new Schema({
