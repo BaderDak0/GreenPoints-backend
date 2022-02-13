@@ -78,3 +78,7 @@
 {"level":"info","message":"DB connected","timestamp":"2022-02-13 10:22:48 PM +0200"}
 {"level":"info","message":"Express server is running on port 8000","timestamp":"2022-02-13 10:23:07 PM +0200"}
 {"level":"info","message":"DB connected","timestamp":"2022-02-13 10:23:08 PM +0200"}
+{"level":"info","message":"Express server is running on port 8000","timestamp":"2022-02-13 10:24:28 PM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2022-02-13 10:24:29 PM +0200"}
+{"level":"info","message":"Express server is running on port 8000","timestamp":"2022-02-13 10:25:20 PM +0200"}
+{"level":"info","message":"DB connected","timestamp":"2022-02-13 10:25:21 PM +0200"}
