@@ -77,6 +77,7 @@ exports.authController = {
                 moderator: user.moderator,
                 age: user.age,
                 gender: user.gender,
+                imgUrl: user.imgUrl,
                 registerDate: user.registerDate,
                 points: user.points,
                 activities: user.activities,
