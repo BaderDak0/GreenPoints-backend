@@ -5,7 +5,7 @@ const { infoLogger, errorLogger } = require("../logs/logs");
 let bcrypt = require('bcryptjs');
 
 exports.authController = {
-    signup = (req, res) => {
+    signup(req, res) {
         infoLogger.info("user signup");
         const { name, email, age, gender, password, imgUrl } = req.body;
         if (name, email, age, gender, password, imgUrl) {
@@ -49,7 +49,7 @@ exports.authController = {
             res.status(400).json({ "message": "Missing Parameters Please send all Parameters" });
         }
     },
-    login = async (req, res) => {
+    async login (req, res) {
         try {
             const user = await User.findOne({ email: req.body.email })
             if (!user) {
