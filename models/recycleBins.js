@@ -8,7 +8,6 @@ const addressSchema = new Schema({
 const recycleBinsSchema = new Schema({
     type: { type: String, required: true },
     location:addressSchema,
-    imgUrl: { type: String },
     maxCapacity: { type: Number, required: true },
     currentCapacity: { type: Number, required: true },
 }, { collection: 'recycleBins' });

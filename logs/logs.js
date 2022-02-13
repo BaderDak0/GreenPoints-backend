@@ -1,5 +1,5 @@
 const winston = require('winston');
-exports.infologger = new winston.createLogger({
+exports.infoLogger = new winston.createLogger({
   transports: [
     new winston.transports.File({
       level: 'info',
@@ -17,7 +17,7 @@ exports.infologger = new winston.createLogger({
   
 });
 
-exports.errorlogger = new winston.createLogger({
+exports.errorLogger = new winston.createLogger({
   transports: [
     new winston.transports.File({
       level: 'error',
