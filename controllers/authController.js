@@ -7,8 +7,8 @@ let bcrypt = require('bcryptjs');
 exports.authController = {
     signup = (req, res) => {
         infoLogger.info("user signup");
-        const { name, email, age, gender, password } = req.body;
-        if (name, email, age, gender, password) {
+        const { name, email, age, gender, password, imgUrl } = req.body;
+        if (name, email, age, gender, password, imgUrl) {
             User.findOne({ email: email })
                 .then((user) => {
                     if (user) {
@@ -21,6 +21,7 @@ exports.authController = {
                             email,
                             age,
                             gender,
+                            imgUrl,
                             password: bcrypt.hashSync(req.body.password, 8),
                             registerDate: new Date().toLocaleString(),
                             points: 0,

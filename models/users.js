@@ -12,6 +12,7 @@ const userSchema = new Schema({
     email: { type: String, required: true },
     age: { type: Number, required: true },
     gender: { type: String, required: true },
+    imgUrl: { type: String, required: true },
     password: { type: String, required: true },
     registerDate: { type: String, required: true },
     points: { type: Number, required: true },
