@@ -1,5 +1,7 @@
 const User = require('../models/users');
 const { infoLogger, errorLogger } = require("../logs/logs");
+let bcrypt = require('bcryptjs');
+
 exports.usersController = {
     getUsers(req, res) {
         infoLogger.info("Get all Users");
@@ -59,41 +61,6 @@ exports.usersController = {
             })
             .catch((err) => res.status(400).json(err));
     },
-    addUser(req, res) {
-        infoLogger.info("Add a user");
-        if (req.body.name && req.body.email &&
-            req.body.age && req.body.gender &&
-            req.body.password && req.body.registerDate &&
-            req.body.points, req.body.moderator) {
-            User.findOne({ email: req.body.email })
-                .then((user) => {
-                    if (user) {
-                        errorLogger.error("this email is already exists");
-                        res.status(400).json({ "message": "this email is already exists" });
-                    }
-                    else {
-                        const newUser = new User(req.body);
-                        newUser.save()
-                            .then(result => {
-                                infoLogger.info(`Adding user  :${req.body.name} is successfully`);
-                                res.json(result);
-                            })
-                            .catch(err => {
-                                errorLogger.error(`Error Adding user `);
-                                res.status(400).json({ "message": `Error Adding user ` });
-                            });
-                    }
-                })
-                .catch(err => {
-                    errorLogger.error(`Error Getting user from db:${err}`);
-                    res.status(400).json({ "message": `Error Adding user ` });
-                });
-        }
-        else {
-            errorLogger.error("Missing Parameters Please send all Parameters ");
-            res.status(400).json({ "message": "Missing Parameters Please send all Parameters" });
-        }
-    },
     deleteUser(req, res) {
         infoLogger.info("Delete a user");
         User.deleteOne({ _id: req.params.id })
@@ -111,5 +78,57 @@ exports.usersController = {
                 errorLogger.error(`Error Deleting user no:${req.params.id} `);
                 res.status(400).json({ "message": `Error Deleting user no:${req.params.id} ` });
             });
+    },
+    addActivity(req, res) {
+        infoLogger.info(`Add Activity to user ${req.params.id}`);
+        const { dateTime, recycleBinID, type } = req.body;
+        if (dateTime && recycleBinID && type) {
+            User.findOne({ _id: req.body.id })
+                .then((user) => {
+                    if (!user) {
+                        errorLogger.error(`no user with id ${req.params.id}`);
+                        res.status(400).json({ "message": `no user with id ${req.params.id}` });
+                    }
+                    else {
+                        const activites = user.activites ?? [];
+                        const newActivity = {
+                            dateTime,
+                            recycleBinID,
+                            type
+                        };
+                        if (type === 'plastic') {
+                            newActivity.points = 100;
+                        } else if (type === 'glass') {
+                            newActivity.points = 150;
+                        } else if (type === 'paper') {
+                            newActivity.points = 50;
+                        } else if (type === 'can') {
+                            newActivity.points = 200;
+                        } else if (type === 'other') {
+                            newActivity.points = 50;
+                        }
+                        activites.push(newActivity);
+                        User.updateOne({ _id: req.params.id }, { activites })
+                            .then((result) => {
+                                if (result.matchedCount > 0) {
+                                    infoLogger.info(`Updating user's activities no:${req.params.id} is successfully`);
+                                    res.json(newActivity);
+                                }
+                                else {
+                                    errorLogger.error("Wrong user id please enter correct id");
+                                    res.status(400).json({ "message": "Wrong user id please enter correct id" });
+                                }
+                            })
+                            .catch((err) => res.status(400).json(err));
+                    }
+                })
+                .catch(err => {
+                    errorLogger.error(`Error Getting user from db:${err}`);
+                    res.status(400).json({ "message": `Error Adding user ` });
+                });
+        } else {
+            errorLogger.error("Missing Parameters Please send all Parameters ");
+            res.status(400).json({ "message": "Missing Parameters Please send all Parameters" });
+        }
     }
 }
