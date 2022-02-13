@@ -1,8 +1,9 @@
 const constants = require('../constants');
-const { secret } = constants;
+const { SECRET } = constants;
 const User = require('../models/users');
 const { infoLogger, errorLogger } = require("../logs/logs");
 let bcrypt = require('bcryptjs');
+let jwt = require("jsonwebtoken");
 
 exports.authController = {
     signup(req, res) {
@@ -66,7 +67,7 @@ exports.authController = {
                     message: "Invalid Password!"
                 });
             }
-            const token = jwt.sign({ id: user._id }, secret, {
+            const token = jwt.sign({ id: user._id }, SECRET, {
                 expiresIn: 86400 // 24 hours
             });
             res.status(200).json({

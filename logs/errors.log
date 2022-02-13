@@ -1,2 +1,8 @@
 {"level":"error","message":"connection error: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","timestamp":"2022-02-13 09:40:30 PM +0200"}
 {"level":"error","message":"connection error: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","timestamp":"2022-02-13 09:40:54 PM +0200"}
+{"level":"error","message":"Error Getting user from db:ReferenceError: jwt is not defined","timestamp":"2022-02-13 10:18:18 PM +0200"}
+{"level":"error","message":"Error Getting user from db:Error: secretOrPrivateKey must have a value","timestamp":"2022-02-13 10:19:50 PM +0200"}
+{"level":"error","message":"Error Getting user from db:Error: secretOrPrivateKey must have a value","timestamp":"2022-02-13 10:21:22 PM +0200"}
+{"level":"error","message":"Error Getting user from db:Error: secretOrPrivateKey must have a value","timestamp":"2022-02-13 10:21:39 PM +0200"}
+{"level":"error","message":"Error Getting user from db:Error: secretOrPrivateKey must have a value","timestamp":"2022-02-13 10:22:20 PM +0200"}
+{"level":"error","message":"Error Getting user from db:ReferenceError: secret is not defined","timestamp":"2022-02-13 10:22:34 PM +0200"}
