@@ -5,7 +5,8 @@ const couponSchema = new Schema({
     info: { type: String, required: true },
     code: { type: String, required: true },
     imgUrl: { type: String, required: true },
-    cost: { type: Number, required: true }
+    cost: { type: Number, required: true },
+    owned: { type: Boolean, default: false },
 }, { collection: 'coupons' });
 const Coupon = model('Coupon', couponSchema);
 module.exports = Coupon;

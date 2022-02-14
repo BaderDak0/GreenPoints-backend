@@ -11,5 +11,10 @@ const recycleBinsSchema = new Schema({
     maxCapacity: { type: Number, required: true },
     currentCapacity: { type: Number, required: true },
 }, { collection: 'recycleBins' });
+
+recycleBinsSchema
+    .path('type')
+    .set(type => String(type).toLowerCase());
+
 const RecycleBin = model('RecycleBin', recycleBinsSchema);
 module.exports = RecycleBin;

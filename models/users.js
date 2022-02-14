@@ -8,6 +8,16 @@ const activitesSchema = new Schema({
     address: { type: String, required: true },
 });
 
+
+const couponSchema = new Schema({
+    name: { type: String, required: true },
+    info: { type: String, required: true },
+    code: { type: String, required: true },
+    imgUrl: { type: String, required: true },
+    cost: { type: Number, required: true },
+    owned: { type: Boolean, default: true },
+});
+
 const userSchema = new Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -18,7 +28,8 @@ const userSchema = new Schema({
     registerDate: { type: String, required: true },
     points: { type: Number, required: true },
     moderator: { type: Boolean, required: true },
-    activities: [activitesSchema]
+    activities: [activitesSchema], 
+    coupons: [couponSchema],
 }, { collection: 'users' });
 
 userSchema

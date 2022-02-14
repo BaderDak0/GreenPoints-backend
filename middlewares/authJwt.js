@@ -15,7 +15,7 @@ verifyToken = (req, res, next) => {
     });
 };
 
-isModerator = (req, res, next) => {
+verifyModerator = (req, res, next) => {
     User.findOne({ _id: req.userId })
         .then((user) => {
             if (!user || !user.moderator) {
@@ -33,7 +33,7 @@ isModerator = (req, res, next) => {
 
 const authJwt = {
     verifyToken,
-    isModerator
+    verifyModerator,
 };
 
 module.exports = authJwt;

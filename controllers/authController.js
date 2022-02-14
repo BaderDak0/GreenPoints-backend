@@ -69,7 +69,7 @@ exports.authController = {
                 });
             }
             const token = jwt.sign({ id: user._id }, SECRET, {
-                expiresIn: 86400 // 24 hours
+                expiresIn: 14*86400 //  14*24 hours
             });
             res.status(200).json({
                 id: user._id,
@@ -82,6 +82,7 @@ exports.authController = {
                 registerDate: user.registerDate,
                 points: user.points,
                 activities: user.activities,
+                coupons: user.coupons,
                 accessToken: token
             });
         }

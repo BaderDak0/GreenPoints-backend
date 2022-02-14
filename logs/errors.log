@@ -6,3 +6,24 @@
 {"level":"error","message":"Error Getting user from db:Error: secretOrPrivateKey must have a value","timestamp":"2022-02-13 10:21:39 PM +0200"}
 {"level":"error","message":"Error Getting user from db:Error: secretOrPrivateKey must have a value","timestamp":"2022-02-13 10:22:20 PM +0200"}
 {"level":"error","message":"Error Getting user from db:ReferenceError: secret is not defined","timestamp":"2022-02-13 10:22:34 PM +0200"}
+{"level":"error","message":"connection error: MongooseError: The `uri` parameter to `openUri()` must be a string, got \"undefined\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","timestamp":"2022-02-14 02:39:36 PM +0200"}
+{"level":"error","message":"Error Getting user from db:TypeError: couponService.getCoupon is not a function","timestamp":"2022-02-14 03:13:56 PM +0200"}
+{"level":"error","message":"Error Getting user from db:TypeError: couponService.getCoupon is not a function","timestamp":"2022-02-14 03:17:45 PM +0200"}
+{"level":"error","message":"Error Getting user from db:TypeError: couponService.getCoupon is not a function","timestamp":"2022-02-14 03:18:30 PM +0200"}
+{"level":"error","message":"Error Getting user from db:TypeError: couponService.getCoupon is not a function","timestamp":"2022-02-14 03:21:35 PM +0200"}
+{"level":"error","message":"Error adding coupon 620a4fd5b0cfe5d387a3922f to user 620963816f1cdb5a6f1bda60","timestamp":"2022-02-14 03:22:18 PM +0200"}
+{"level":"error","message":"Error adding coupon 620a4fd5b0cfe5d387a3922f to user 620963816f1cdb5a6f1bda60","timestamp":"2022-02-14 03:22:37 PM +0200"}
+{"level":"error","message":"Error adding coupon 620a4fd5b0cfe5d387a3922f to user 620963816f1cdb5a6f1bda60","timestamp":"2022-02-14 03:23:07 PM +0200"}
+{"level":"error","message":"Error Getting user from db:TypeError: Cannot read property 'then' of undefined","timestamp":"2022-02-14 03:24:43 PM +0200"}
+{"level":"error","message":"Error Getting user from db:TypeError: Cannot read property 'then' of undefined","timestamp":"2022-02-14 03:25:25 PM +0200"}
+{"level":"error","message":"User 620963816f1cdb5a6f1bda60 doesn't have enough points to buy coupon 620a4fd5b0cfe5d387a3922f","timestamp":"2022-02-14 03:27:05 PM +0200"}
+{"level":"error","message":"User 620963816f1cdb5a6f1bda60 doesn't have enough points to buy coupon 620a4fd5b0cfe5d387a3922f","timestamp":"2022-02-14 03:33:34 PM +0200"}
+{"level":"error","message":"User 620963816f1cdb5a6f1bda60 doesn't have enough points to buy coupon 620a5048b0cfe5d387a39230","timestamp":"2022-02-14 03:47:45 PM +0200"}
+{"level":"error","message":"User 620963816f1cdb5a6f1bda60 doesn't have enough points to buy coupon 620a5048b0cfe5d387a39230","timestamp":"2022-02-14 04:13:24 PM +0200"}
+{"level":"error","message":"Error getting the data from db:TypeError: Cannot read property 'isModerator' of undefined","timestamp":"2022-02-14 04:44:06 PM +0200"}
+{"level":"error","message":"Error getting the data from db:TypeError: Cannot read property 'isModerator' of undefined","timestamp":"2022-02-14 04:44:14 PM +0200"}
+{"level":"error","message":"Missing Parameters Please send all Parameters ","timestamp":"2022-02-14 08:18:00 PM +0200"}
+{"level":"error","message":"Error Deleting coupon no:2 ","timestamp":"2022-02-14 08:20:31 PM +0200"}
+{"level":"error","message":"User 620aa84bd64966d900ebc8a2 doesn't have enough points to buy coupon 620a4fd5b0cfe5d387a3922f","timestamp":"2022-02-14 09:28:49 PM +0200"}
+{"level":"error","message":"User 620aa84bd64966d900ebc8a2 doesn't have enough points to buy coupon 620a5048b0cfe5d387a39230","timestamp":"2022-02-14 09:28:51 PM +0200"}
+{"level":"error","message":"User 620aa84bd64966d900ebc8a2 doesn't have enough points to buy coupon 620a9df2203c3228c7526097","timestamp":"2022-02-14 09:28:53 PM +0200"}
