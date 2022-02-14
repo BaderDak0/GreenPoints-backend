@@ -5,7 +5,7 @@ const activitesSchema = new Schema({
     recycleBinID: { type: String, required: true },
     type: { type: String, required: true },
     points: { type: Number, required: true },
-    address: { type: String, required: true }, 
+    address: { type: String, required: true },
 });
 
 const userSchema = new Schema({
@@ -18,7 +18,12 @@ const userSchema = new Schema({
     registerDate: { type: String, required: true },
     points: { type: Number, required: true },
     moderator: { type: Boolean, required: true },
-    activities:[activitesSchema]
+    activities: [activitesSchema]
 }, { collection: 'users' });
+
+userSchema
+    .path('email')
+    .set(email => String(email).toLowerCase());
+    
 const User = model('User', userSchema);
 module.exports = User;

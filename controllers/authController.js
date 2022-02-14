@@ -51,8 +51,9 @@ exports.authController = {
         }
     },
     async login (req, res) {
+        const email = String(req.body.email).toLowerCase();
         try {
-            const user = await User.findOne({ email: req.body.email })
+            const user = await User.findOne({ email })
             if (!user) {
                 errorLogger.error("Wrong user email please enter correct email");
                 res.status(400).json({ "message": "Wrong user email please enter correct email" });
