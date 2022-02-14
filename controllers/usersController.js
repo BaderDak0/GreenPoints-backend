@@ -83,7 +83,7 @@ exports.usersController = {
         infoLogger.info(`Add Activity to user ${req.params.id}`);
         const { dateTime, recycleBinID, type, address } = req.body;
         if (dateTime && recycleBinID && type && address) {
-            User.findOne({ _id: req.body.id })
+            User.findOne({ _id: req.params.id })
                 .then((user) => {
                     if (!user) {
                         errorLogger.error(`no user with id ${req.params.id}`);
