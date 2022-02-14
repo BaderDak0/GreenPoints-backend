@@ -90,7 +90,7 @@ exports.usersController = {
                         res.status(400).json({ "message": `no user with id ${req.params.id}` });
                     }
                     else {
-                        const activites = user.activites ?? [];
+                        const activities = user.activities ?? [];
                         const newActivity = {
                             dateTime,
                             recycleBinID,
@@ -108,9 +108,10 @@ exports.usersController = {
                         } else if (type === 'other') {
                             newActivity.points = 50;
                         }
-                        activites.push(newActivity);
-                        User.updateOne({ _id: req.params.id }, { points: user.points + newActivity.points, activites })
+                        activities.push(newActivity);
+                        User.updateOne({ _id: req.params.id }, { points: (user.points + newActivity.points), activities })
                             .then((result) => {
+                                console.log(result)
                                 if (result.matchedCount > 0) {
                                     infoLogger.info(`Updating user's activities no:${req.params.id} is successfully`);
                                     res.json(newActivity);
