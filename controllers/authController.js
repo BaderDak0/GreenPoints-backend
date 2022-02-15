@@ -57,6 +57,7 @@ exports.authController = {
             if (!user) {
                 errorLogger.error("Wrong user email please enter correct email");
                 res.status(400).json({ "message": "Wrong user email please enter correct email" });
+                return;
             }
             const passwordIsValid = bcrypt.compareSync(
                 req.body.password,
